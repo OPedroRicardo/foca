@@ -70,6 +70,12 @@ module.exports = configure(function (ctx) {
         chain.plugin('eslint-webpack-plugin')
           .use(ESLintPlugin, [{ extensions: [ 'js', 'vue' ] }])
       },
+      extendWebpack (cfg) {
+        cfg.module.rules.push({
+        test: /\.pug$/,
+        loader: 'pug-plain-loader'
+        })
+      },
     },
 
     // Full list of options: https://v2.quasar.dev/quasar-cli/quasar-conf-js#Property%3A-devServer
