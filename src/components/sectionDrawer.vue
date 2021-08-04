@@ -2,7 +2,6 @@
 q-drawer.bg-secondary(
     v-model="drawer"
     show-if-above
-    bordered
     :width="282"
     :breakpoint="500"
     @click.capture="drawerClick"
@@ -11,7 +10,11 @@ q-drawer.bg-secondary(
         q-scroll-area.fit
             q-list.column.justify-between
                 template(v-for="item in drawerList")
-                    q-item(clickable :active="item.label === 'Outbox'" v-ripple)
+                    q-item.active(clickable v-ripple v-if="active == item.label")
+                        q-item-section(avatar)
+                            q-icon(:name="item.icon")
+                        q-item-section {{ item.label }}
+                    q-item(clickable v-ripple v-else)
                         q-item-section(avatar)
                             q-icon(:name="item.icon")
                         q-item-section {{ item.label }}
@@ -56,7 +59,8 @@ export default {
             drawer: ref(true),
             drawerClick () {
                 drawer = !drawer 
-            }
+            },
+            active: 'Ambientes'
         }
     }
 }
