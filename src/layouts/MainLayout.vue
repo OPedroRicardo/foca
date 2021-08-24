@@ -1,35 +1,24 @@
 <template lang="pug">
 q-layout
-  q-header
-    q-toolbar.row.items-center.justify-center Foca
-  section-drawer
   router-view
 </template>
 
 <script>
-import { defineComponent, ref } from 'vue';
-import sectionDrawer from '../components/sectionDrawer.vue'
+import { defineComponent } from 'vue';
 
 export default defineComponent({
   name: 'MainLayout',
   data() {
-    return {
-
-    }
+    
   },
-  components: {
-    sectionDrawer
-  }
 })
 </script>
 
 <style lang="scss" scoped>
-.q-page {
-  .q-list {
-    .q-item {
-      height: 64px;
-      padding: 8px auto;
-    }
-  }
+.q-layout {
+  height: 100%;
+  background: linear-gradient(295.46deg, #173647 0%, #175449 78.62%);
+  font-family: 'Poppins';
+  color: #fefefe;
 }
 </style>
